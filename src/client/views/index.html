@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Travel App</title>
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/style.css">
+</head>
+ <body>
+<div id = "app">
+  <div class ="holder headline">
+    Travel App
+  </div>
+  <div class ="holder zip">
+    <label for="zip">Where are you Traveling?</label>
+    <input type="text" id="zip" placeholder="Enter Destination Here">
+  </div>
+  <div class ="holder feel">
+    <label for="feelings">When Are You Traveling?</label>
+    <textarea class= "myInput" id="feelings" placeholder="Enter Travel Date Here" rows="9" cols="50"></textarea>
+    <button id="generate" type = "submit"> Submit </button>
+  </div>
+  <div class ="holder entry">
+    <div class = "title">Most Recent Entry</div>
+   <div id = "entryHolder">
+    <div id = "date"></div> 
+   <div id = "temp"></div>
+   <div id = "content"></div>
+  </div>
+  </div>
+  </div>
+<script src="app.js" type="text/javascript"></script>
+
+</body>
+</html>
