@@ -1,87 +1,116 @@
-body{
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
 
 #app{
-    display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    
-    /* grid-template-columns:  */
-    height:100vh;
-    color: #026289;
-    justify-content: center;
-    grid-gap: 1em;
+	display: grid;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: 20% 20% 20% 40%;
+	grid-gap: 20px;
+	width: auto;
+	height: 100vh;
+	background-color: #FDFDFD;
+    justify-items: center;
+    float: bottom;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.headline {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    color: rgb(3, 91, 121);
+    font-size: 250%;
+}
+
+.where{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    justify-items: center;
+}
+
+.where{
+    display: inline-flex;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-color: rgb(13, 76, 158);
+    color: white;
+    justify-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 90%;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.when {
+    display: inline-flex;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    background-color: rgb(13, 76, 158);
+    color: white;
+    justify-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 90%;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.entry {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 4;
     font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    color: rgb(3, 91, 121);
+}
+
+#generate {
+    width: 30%;
     border-radius: 10px;
+    background-color: rgb(250, 244, 244);
+    color: rgb(3, 91, 121);
 }
 
-.entry{
-    background: rgba(59, 74, 107, .4);
+#feelings {
+    width: 30%;
+    height: 40px;
     border-radius: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label{
-    display:block;
-    font-size: 27px;
-}
-
-input{
-    display:block;
-    height: 60px;
-    width: 320px;
-    background:#abd7e4;
+#zip {
+    width: 30%;
+    height: 40px;
     border-radius: 10px;
-    color: #000304;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-button{
-    width: 400px;
-    height: 100px;
-    background: #7687ad;
-    border-radius: 10px;
-    color: #e6e8e9;
-    font-size: 26px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 5px #444;
+#map_1 {
+    border-radius: 40px;
+    height: 100%;
+    width: 120%;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 4;
 }
-h1{
-    font-size: 36px;
+#map_2 {
+    border-radius: 40px;
+    height: 100%;
+    width: 120%;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
 }
-
-textarea{
-    background:#abd7e4;
-    border-radius: 10px;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
-/* Reset style for HTML element on active to have no border*/
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #000304; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #000304; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #000304; 
-    font-family: 'Oswald', sans-serif;
-
-} 

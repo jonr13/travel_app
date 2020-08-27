@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
 <meta charset="UTF-8">
-<title>Travel App</title>
-<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles/style.css">
-</head>
+  <title>Travel App</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+  </head>
  <body>
-<div id = "app">
-  <div class ="holder headline">
-    Travel App
-  </div>
-  <div class ="holder zip">
+  <div id = "app">
+    <div class ="headline">
+      <h1>Travel App</h1>
+    </div>
+    <img src='../media/map_1.JPG' id='map_1'>
+    <img src='../media/map_1.JPG'id='map_2'>
+  <div class ="where">
     <label for="zip">Where are you Traveling?</label>
     <input type="text" id="zip" placeholder="Enter Destination Here">
   </div>
-  <div class ="holder feel">
+  <div class ="when">
     <label for="feelings">When Are You Traveling?</label>
-    <textarea class= "myInput" id="feelings" placeholder="Enter Travel Date Here" rows="9" cols="50"></textarea>
-    <button id="generate" type = "submit"> Submit </button>
+      <textarea class= "myInput" id="feelings" placeholder="Enter Travel Date Here" ></textarea>
+      <button id="generate" type = "submit"> Submit </button>
   </div>
-  <div class ="holder entry">
-    <div class = "title">Most Recent Entry</div>
+  <div class ="entry">
+    <div class = "title">Destination Information</div>
    <div id = "entryHolder">
     <div id = "date"></div> 
    <div id = "temp"></div>
