@@ -1,7 +1,7 @@
-let projectData = {};
-let curTemp
-let feelsLike
-let useResp
+const dotenv = require('dotenv');
+dotenv.config();
+var path = require('path');
+const reg = require("regenerator-runtime");
 
 // Require Express to run server and routes
 const express = require('express');
@@ -23,32 +23,14 @@ app.use(express.static('dist'));
 
 
 // Setup Serverconst
-const port = 8000;
-function listening(){
-    console.log("server is running now");
-    console.log(`running on the localhost: ${port}`)}
+const port = 8080
+const printPort = (port) => {
+    console.log(`App is listening on port ${port}`)}
+    // designates what port the app will listen to for incoming requests
 
-const server = app.listen(port, listening);
+app.listen(port, printPort(port));
 
 // Adding a GET ROUTE to add data to projectData array
 
-app.get('/all', sendData);
-
-function sendData (request, response) {
-    response.send(projectData);
-    console.log(projectData);
-}
 
 //Adding Project Data (User Data) to to leveraged when dynamically updating UI
-function addWeather (request, response) {
-    console.log(request.body);
-    projectData["temperature"] = request.body.temperature;
-    projectData["feelings"] = request.body.feelings;
-    projectData["date"] = request.body.date;
-    response.send(projectData);
-    console.log(projectData);
-    return projectData;
-}
-
-
-app.post('/weatherdata', addWeather);
