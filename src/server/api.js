@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 
 //Global Variables
 const geonames = "http://api.geonames.org/searchJSON?q=";
-const WeatherBit = "http://api.weatherbit.io/v2.0/forecast/daily?";
+const WeatherBit = "https://api.weatherbit.io/v2.0/history/daily?";
 const Pixabay = "https://pixabay.com/api/";
 
 //API call for Geonames API
@@ -18,27 +18,28 @@ const callGeo = async (city) => {
 }
 
 //API call for Weatherbit API
-const callWeatherbit = async (city) => {
-    const WeatherUrl = `${WeatherBit}${encodeURIComponent(city)}
-    &maxRows=1&username=${process.env.WeatherApiKey}`
-
+const callWeatherbit = async (lattitude, longitude, start, end) => {
+    const WeatherUrl = `${WeatherBit}&lat=${lattitude}&lon=${longitude}&
+    start_date=${start}&end_date=${end}&key=${process.env.WeatherApiKey}`
     try {
         const response = await fetch(WeatherUrl);
         const data = await response.json();
         return data;
     } catch (error) {console.log('WeatherBit API Error')}
 }
-//API call for Pixabay API
-const callPixabay = async (city) => {
-    const PixUrl = `${Pixabay}${encodeURIComponent(city)}
-    &maxRows=1&username=${process.env.PixApiKey}`
 
+
+//API call for Pixabay API
+const callPixabay = async (search) => {
+    const PixUrl = `${Pixabay}?key=${
+        process.env.PixApiKey}&q=${encodeURIComponent(search)}`
     try {
         const response = await fetch(PixUrl);
         const data = await response.json();
         return data;
     } catch (error) {console.log('Pixabay API Error')}
 }
+
 export { callGeo }
 export { callWeatherbit }
 export { callPixabay }
