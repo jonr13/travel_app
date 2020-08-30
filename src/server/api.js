@@ -28,11 +28,10 @@ const callWeatherbit = async (lattitude, longitude, start, end) => {
     } catch (error) {console.log('WeatherBit API Error')}
 }
 
-
 //API call for Pixabay API
 const callPixabay = async (search) => {
     const PixUrl = `${Pixabay}?key=${
-        process.env.PixApiKey}&q=${encodeURIComponent(search)}`
+        process.env.PixApiKey}&q=${encodeURIComponent(search)}&image_type=photo&pretty=true`
     try {
         const response = await fetch(PixUrl);
         const data = await response.json();
@@ -40,6 +39,6 @@ const callPixabay = async (search) => {
     } catch (error) {console.log('Pixabay API Error')}
 }
 
-export { callGeo }
-export { callWeatherbit }
-export { callPixabay }
+exports.callGeo = callGeo;
+exports.callWeatherbit = callWeatherbit;
+exports.callPixabay = callPixabay;

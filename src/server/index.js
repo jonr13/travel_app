@@ -2,6 +2,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 var path = require('path');
 const reg = require("regenerator-runtime");
+const api = require("./api");
+
 
 // Require Express to run server and routes
 const express = require('express');
@@ -31,9 +33,9 @@ const printPort = (port) => {
 app.listen(port, printPort(port));
 
 /* Global Variables */
-import { callGeo } from '/api.js'
-import { callWeatherbit } from '/api.js'
-import { callPixabay } from '/api.js'
+//import { callGeo } from './api.js'
+//import { callWeatherbit } from './api.js'
+//import { callPixabay } from './api.js'
 
 
 
@@ -41,9 +43,11 @@ app.post('/api', function (req, res) {
     let ReqStart = req.body.start;
     let ReqEnd = req.body.end;
     let ReqCity = req.body.city;
-    const data1 = callGeo(ReqCity);
+    const data1 = api.callGeo(ReqCity);
     const lattitude = data1.lat;
     const longitude = data1.lng;
-    callWeatherbit(lattitude, longitude, ReqStart, ReqEnd);
-
+    api.callWeatherbit(lattitude, longitude, ReqStart, ReqEnd);
+    let data2 = api.callPixabay(ReqCity);
+    console.log(data1);
+    console.log(data2);
 })
