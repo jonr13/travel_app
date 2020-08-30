@@ -25,7 +25,7 @@ app.use(express.static('dist'));
 
 
 // Setup Serverconst
-const port = 8081
+const port = 8080
 const printPort = (port) => {
     console.log(`App is listening on port ${port}`)}
     // designates what port the app will listen to for incoming requests

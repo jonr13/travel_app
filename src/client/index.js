@@ -1,6 +1,4 @@
 import './styles/style.scss'
-import img1 from '/media/map_1.jpg'
-import img2 from '/media/map_2.jpg'
 alert("I EXIST")
 
 //import the main function of your application javascript

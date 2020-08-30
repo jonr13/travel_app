@@ -1,8 +1,9 @@
   
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
@@ -17,19 +18,22 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: "file-loader",
+                    },
+                ],
+            },
+            {
                 test: '/\.js$/',
                 exclude: /node_modules/,
                 loader: "babel-loader"
-            }, {
+            },
+            {
                 test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-        },
-        {
-            test: /\.(png|svg|jpg|gif)$/,
-            use: [{loader: 'file-loader', 
-            options: {name: 'map_1.jpg'}
-            }]
-          },
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+            }
         ]
     },
     plugins: [
