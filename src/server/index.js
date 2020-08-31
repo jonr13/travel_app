@@ -40,14 +40,22 @@ app.listen(port, printPort(port));
 
 
 app.post('/api', function (req, res) {
-    let ReqStart = req.body.start;
-    let ReqEnd = req.body.end;
+    let ReqStart = req.body.stdate;
+    let ReqEnd = req.body.endate;
     let ReqCity = req.body.city;
-    const data1 = api.callGeo(ReqCity);
-    const lattitude = data1.lat;
-    const longitude = data1.lng;
-    api.callWeatherbit(lattitude, longitude, ReqStart, ReqEnd);
-    let data2 = api.callPixabay(ReqCity);
-    console.log(data1);
-    console.log(data2);
+    const callApis = async () => {
+        const data1 = await api.callGeo(ReqCity);
+        const dataGeo = data1['geonames'][0];
+        const lattitude = dataGeo['lat'];
+        const longitude = dataGeo['lng'];
+        const weather = await api.callWeatherbit(lattitude, longitude, ReqStart, ReqEnd);
+        console.log(weather);
+    }
+    callApis()
+
+
+    //api.callWeatherbit(lattitude, longitude, ReqStart, ReqEnd);
+    //let data2 = api.callPixabay(ReqCity);
+    //console.log(data1);
+    //console.log(data2);
 })

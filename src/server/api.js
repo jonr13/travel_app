@@ -7,8 +7,7 @@ const Pixabay = "https://pixabay.com/api/";
 
 //API call for Geonames API
 const callGeo = async (city) => {
-    const GeoUrl = `${geonames}${encodeURIComponent(city)}
-    &maxRows=1&username=${process.env.geoUserName}`
+    const GeoUrl = `${geonames}${encodeURIComponent(city)}&maxRows=1&username=${process.env.geoUserName}`
 
     try {
         const response = await fetch(GeoUrl);
@@ -19,8 +18,7 @@ const callGeo = async (city) => {
 
 //API call for Weatherbit API
 const callWeatherbit = async (lattitude, longitude, start, end) => {
-    const WeatherUrl = `${WeatherBit}&lat=${lattitude}&lon=${longitude}&
-    start_date=${start}&end_date=${end}&key=${process.env.WeatherApiKey}`
+    const WeatherUrl = `${WeatherBit}&lat=${lattitude}&lon=${longitude}&start_date=${start}&end_date=${end}&key=${process.env.WeatherApiKey}`
     try {
         const response = await fetch(WeatherUrl);
         const data = await response.json();

@@ -6,7 +6,8 @@ function handleSubmit(event) {
     // check what text was put into both form fields
 
 let formCity = document.getElementById('city').value
-let formDate = document.getElementById('date').value
+let formDate1 = document.getElementById('date_start').value
+let formDate2 = document.getElementById('date_end').value
 
 console.log("::: Form Submitted :::");
 
@@ -29,15 +30,10 @@ const postData = async ( url = '', data = {}) => {
       }
   }
 
-postData('/api', {city: formCity, date: formDate})
+postData('/api', {city: formCity, stdate: formDate1, endate: formDate2})
     .then(function(res) {
-        if (res.agreement === undefined && res.confidence === undefined && res.subjectivity === undefined && res.polarity === undefined) {
-            alert("Please input a valid date!")
-        } else {
-            document.getElementById('results').innerHTML = `Agreement: ${res.agreement}    Polarity: ${res.polarity}    Confidence: ${res.conidence}    Subjectivity: ${res.subjectivity}`;
-        }
-    })
-
+    console.log('post working')}
+    )
 }
 
 export { handleSubmit }
