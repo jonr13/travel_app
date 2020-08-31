@@ -114,3 +114,16 @@
     grid-row-end: 4;
 
 }
+
+#image {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 4;
+}
+
+#pix {
+    height: 150%;
+    width: 120%;
+    border-radius: 10px;
+}
