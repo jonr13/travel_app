@@ -25,7 +25,7 @@ app.use(express.static('dist'));
 
 
 // Setup Serverconst
-const port = 8080
+const port = 8081
 const printPort = (port) => {
     console.log(`App is listening on port ${port}`)}
     // designates what port the app will listen to for incoming requests
@@ -48,7 +48,6 @@ app.post('/api', function (req, res) {
         dataset['high_temp'] = ((WeatherData['data'][0]['high_temp']) * (9 / 5) + 32);
         dataset['weather'] = WeatherData['data'][0]['weather']['description'];
         dataset['image'] = await api.callPixabay(dataset['city']);
-        //high temp, lowtemp, datetime, weather
         console.log(dataset);
         res.send(dataset);
             }
@@ -57,4 +56,4 @@ app.post('/api', function (req, res) {
     callApis()
 })
 
-module.exports = printPort()
+module.exports = printPort
