@@ -25,7 +25,7 @@ app.use(express.static('dist'));
 
 
 // Setup Serverconst
-const port = 8081
+const port = 8080
 const printPort = (port) => {
     console.log(`App is listening on port ${port}`)}
     // designates what port the app will listen to for incoming requests
@@ -53,6 +53,8 @@ app.post('/api', function (req, res) {
         res.send(dataset);
             }
         catch(error) {alert('Please enter start and end date in YYYY-MMM-DD format!')}
-    }
+        }
     callApis()
 })
+
+module.exports = printPort()

@@ -1,5 +1,10 @@
 const fetch = require('node-fetch');
 
+const dataTrans = (response) => {
+    const newData = await response.json();
+    return newData
+}
+
 function handleSubmit(event) {
     event.preventDefault()
 
@@ -22,8 +27,7 @@ const postData = async ( url = '', data = {}) => {
     body: JSON.stringify(data),
     });
     try {
-        const newData = await response.json();
-        return newData;
+        return dataTrans(response);
     }
     catch(error) {
       console.log("error", error);
@@ -40,6 +44,6 @@ postData('/api', {city: formCity, stdate: formDate1, endate: formDate2})
     )
 }
 
+
 export { handleSubmit }
 
-const 
